@@ -37,12 +37,12 @@ more info: http://www.findmebyip.com/litmus/#css3-properties
 
 ## Examples and Instructions
 	// Import the mixins
-	`@import "css3-mixins.scss"`
+	@import "css3-mixins.scss"
 
 	// Call Mixins
-	`@include opacity();`
-	`@include border-radius(3px); `
-	`@include transition(color, .5s, ease-in); `
+	@include opacity();
+	@include border-radius(3px); 
+	@include transition(color, .5s, ease-in); 
 
 ## Demo Page
 
