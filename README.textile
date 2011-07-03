@@ -39,8 +39,9 @@ h2. Mixins available:
 h2. Examples and Instructions
 
 @
-\@import "css3-mixins.scss"
 ==
+@import "css3-mixins.scss"
+
 @include opacity();
 @include border-radius(3px); 
 @include transition(color, .5s, ease-in); 
