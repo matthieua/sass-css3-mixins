@@ -37,13 +37,13 @@ more info: http://www.findmebyip.com/litmus/#css3-properties
   -   triple-borders          - arguments: Color One: #3C3C3C, Color Two: #999999, Color Three: #000000, Radius: 0
 
 ## Examples and Instructions
+	// Import the mixins
+	@import "css3-mixins.scss"
 
-
-@import "css3-mixins.scss"
-
-@include opacity();
-@include border-radius(3px); 
-@include transition(color, .5s, ease-in); 
+	// Call Mixins
+	@include opacity();
+	@include border-radius(3px); 
+	@include transition(color, .5s, ease-in); 
 
 ## Demo Page
 
