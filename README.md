@@ -1,4 +1,4 @@
-h1. Sass CSS3 Mixins! The Cross-Browser CSS3 Sass Library
+# Sass CSS3 Mixins! The Cross-Browser CSS3 Sass Library
 
 By: Matthieu Aussaguel, http://www.mynameismatthieu.com, @matthieu_tweets
 
@@ -11,7 +11,7 @@ ENDING css files
 All CSS3 Properties are being supported by Safari 5
 more info: http://www.findmebyip.com/litmus/#css3-properties
 
-h2. Mixins available:
+## Mixins available:
 
   -   background-gradient     - arguments: Start Color: #3C3C3C, End Color: #999999
   -   background-size         - arguments: Width: 100%, Height: 100%
@@ -36,23 +36,20 @@ h2. Mixins available:
   -   transition              - arguments: What: all, Length: 1s, Easing: ease-in-out
   -   triple-borders          - arguments: Color One: #3C3C3C, Color Two: #999999, Color Three: #000000, Radius: 0
 
-h2. Examples and Instructions
+## Examples and Instructions
 
-@
-==
+
 @import "css3-mixins.scss"
 
 @include opacity();
 @include border-radius(3px); 
 @include transition(color, .5s, ease-in); 
-==
-@
 
-h2. Demo Page
+## Demo Page
 
 Coming soon...
 
 
-h2. Changelog
+## Changelog
 
 * Initial Release
