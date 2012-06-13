@@ -2,7 +2,7 @@
 
 By: [Matthieu Aussaguel](http://www.mynameismatthieu.com), [@mattaussaguel](https://twitter.com/#!/mattaussaguel)
 
-List of CSS3 Sass Mixins File to be @imported and @included as you need
+List of CSS3 Sass Mixins File to be `@imported` and `@included` as you need
 
 The purpose of this library is to facilitate the use of CSS3 on different browsers avoiding HARD TO READ and NEVER
 ENDING css files
@@ -128,3 +128,4 @@ http://mynameismatthieu.com/sass-css3-mixins/
 ## Changelog
 
 * Initial Release
+* Beta Release
