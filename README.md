@@ -1,6 +1,6 @@
 # Sass CSS3 Mixins! The Cross-Browser CSS3 Sass Library
 
-By: Matthieu Aussaguel, http://www.mynameismatthieu.com, @mattaussaguel
+By: [Matthieu Aussaguel](http://www.mynameismatthieu.com), [@mattaussaguel](https://twitter.com/#!/mattaussaguel)
 
 List of CSS3 Sass Mixins File to be @imported and @included as you need
 
@@ -111,13 +111,13 @@ v0.1 Beta
 ## Examples and Instructions
 
 ```sass
-	// Import the mixins
-	@import "css3-mixins.scss"
+   // Import the mixins
+   @import "css3-mixins.scss"
 
-	// Call Mixins
-	@include opacity();
-	@include border-radius(3px); 
-	@include transition(color, .5s, ease-in); 
+   // Call Mixins
+   @include opacity();
+   @include border-radius(3px); 
+   @include transition(color, .5s, ease-in); 
 ```
 
 ## Demo Page
