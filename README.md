@@ -1,4 +1,4 @@
-# Sass CSS3 Mixins! The Cross-Browser CSS3 Sass Library
+# [Sass CSS3 Mixins! The Cross-Browser CSS3 Sass Library](http://mynameismatthieu.com/sass-css3-mixins/)
 
 By: [Matthieu Aussaguel](http://www.mynameismatthieu.com), [@mattaussaguel](https://twitter.com/#!/mattaussaguel)
 
@@ -13,6 +13,10 @@ more info: http://www.findmebyip.com/litmus/#css3-properties
 ## Version
 
 v0.1 Beta
+
+## Website URL
+
+http://mynameismatthieu.com/sass-css3-mixins/
 
 ## Mixins available:
 
@@ -119,11 +123,6 @@ v0.1 Beta
    @include border-radius(3px); 
    @include transition(color, .5s, ease-in); 
 ```
-
-## Demo Page
-
-http://mynameismatthieu.com/sass-css3-mixins/
-
 
 ## Changelog
 
