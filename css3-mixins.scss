@@ -110,10 +110,10 @@
 
 
 /* BOX SHADOW */
-@mixin box-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0,0,0,.4)) {
-    -webkit-box-shadow: $x $y $blur $color;
-    -moz-box-shadow:    $x $y $blur $color;
-    box-shadow:         $x $y $blur $color;
+@mixin box-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0,0,0,.4), $inset: "") {
+    -webkit-box-shadow: $inset $x $y $blur $color;
+    -moz-box-shadow:    $inset $x $y $blur $color;
+    box-shadow:         $inset $x $y $blur $color;
 }
 
 /* BOX SIZING */
