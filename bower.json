@@ -1,0 +1,10 @@
+{
+  "name": "sass-css3-mixins",
+  "version": "0.1",
+  "main": "css3-mixins.scss",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ]
+}
