@@ -104,7 +104,7 @@
 @mixin box-rgba($r: 60, $g: 3, $b: 12, $opacity: 0.23, $color: #3C3C3C) {
   background-color: transparent;
   background-color: rgba($r, $g, $b, $opacity);
-            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr#$color,endColorstr=$color);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$color,endColorstr=$color);
             zoom:   1;
 }
 
