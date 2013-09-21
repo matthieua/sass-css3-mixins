@@ -45,7 +45,7 @@
   background-image:     -ms-linear-gradient(top, $startColor, $endColor)
   background-image:      -o-linear-gradient(top, $startColor, $endColor)
   background-image:         linear-gradient(top, $startColor, $endColor)
-  filter:            progid:DXImageTransform.Microsoft.gradient(startColorStr=$startColor, EndColorStr=$endColor)
+  filter:            progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$startColor}', endColorStr='#{$endColor}');
 
 
 /* BACKGROUND SIZE */
@@ -99,7 +99,7 @@
 @mixin box-rgba($r: 60, $g: 3, $b: 12, $opacity: 0.23, $color: #3C3C3C)
   background-color: transparent
   background-color: rgba($r, $g, $b, $opacity)
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$color,endColorstr=$color)
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$color}',endColorstr='#{$color}');
   zoom:   1
 
 
@@ -183,7 +183,7 @@
   -webkit-transform: rotate($deg + deg)
   -ms-transform: rotate($deg + deg)
   transform: rotate($deg + deg)
-  filter: progid:DXImageTransform.Microsoft.Matrix(M11=$m11, M12=$m12,M21=$m21, M22=$m22, sizingMethod='auto expand')
+  filter: progid:DXImageTransform.Microsoft.Matrix(M11=#{$m11}, M12=#{$m12}, M21=#{$m21}, M22=#{$m22}, sizingMethod='auto expand');
   zoom: 1
 
 /* TEXT SHADOW */
