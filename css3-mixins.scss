@@ -12,6 +12,7 @@
 
   Mixins available:
     -   background-gradient     - arguments: Start Color: #3C3C3C, End Color: #999999
+    -   background-radial       - arguments: Start Color: #FFFFFF, Start position: 0%, End Color: #000000, End position: 100%
     -   background-size         - arguments: Width: 100%, Height: 100%
     -   border-radius           - arguments: Radius: 5px
     -   border-radius-separate  - arguments: Top Left: 5px, Top Left: 5px, Bottom Left: 5px, Bottom Right: 5px
@@ -33,6 +34,10 @@
     -   transform               - arguments: Parameters: null
     -   transition              - arguments: What: all, Length: 1s, Easing: ease-in-out
     -   triple-borders          - arguments: Color One: #3C3C3C, Color Two: #999999, Color Three: #000000, Radius: 0
+    -   keyframes               - arguments: Animation name
+                                - content:   Animation css
+    -   animation               - arguments: name duration timing-function delay iteration-count direction fill-mode play-state
+                                             (http://www.w3schools.com/cssref/css3_pr_animation.asp)
 
 ------------------------------------------------------------- */
 
@@ -48,6 +53,16 @@
     filter:            progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$startColor}', endColorStr='#{$endColor}');
 }
 
+/* BACKGROUND RADIAL */
+@mixin background-radial($startColor: #FFFFFF, $startPos: 0%, $endColor: #000000, $endPos:100%) {
+    background: -moz-radial-gradient(center, ellipse cover, $startColor $startPos, $endColor $endPos);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop($startPos,$startColor), color-stop($endPos,$endColor));
+    background: -webkit-radial-gradient(center, ellipse cover, $startColor $startPos,$endColor $endPos);
+    background: -o-radial-gradient(center, ellipse cover, $startColor $startPos,$endColor $endPos);
+    background: -ms-radial-gradient(center, ellipse cover, $startColor $startPos,$endColor $endPos);
+    background: radial-gradient(ellipse at center, $startColor $startPos,$endColor $endPos);
+    filter:     progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$startColor}', endColorstr='#{$endColor}',GradientType=1 );
+}
 
 /* BACKGROUND SIZE */
 @mixin background-size($width: 100%, $height: 100%) {
@@ -243,4 +258,32 @@
     -webkit-box-shadow: 0 0 0 1px $colorTwo, 0 0 0 2px $colorThree;
     -moz-box-shadow:    0 0 0 1px $colorTwo, 0 0 0 2px $colorThree;
     box-shadow:         0 0 0 1px $colorTwo, 0 0 0 2px $colorThree;
+}
+
+/* KEYFRAMES */
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes $animation-name {
+    @content;
+  }
+  @-moz-keyframes $animation-name {
+    @content;
+  }  
+  @-ms-keyframes $animation-name {
+    @content;
+  }
+  @-o-keyframes $animation-name {
+    @content;
+  }  
+  @keyframes $animation-name {
+    @content;
+  }
+}
+
+/* ANIMATION */
+@mixin animation($str) {
+  -webkit-animation: $str;
+  -moz-animation: $str;
+  -ms-animation: $str;
+  -o-animation: $str;
+  animation: $str;      
 }
