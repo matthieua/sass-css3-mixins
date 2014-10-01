@@ -55,13 +55,13 @@
 
 /* BACKGROUND RADIAL */
 @mixin background-radial($startColor: #FFFFFF, $startPos: 0%, $endColor: #000000, $endPos:100%) 
-    background: -moz-radial-gradient(center, ellipse cover, $startColor $startPos, $endColor $endPos)
-    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop($startPos,$startColor), color-stop($endPos,$endColor))
-    background: -webkit-radial-gradient(center, ellipse cover, $startColor $startPos,$endColor $endPos)
-    background: -o-radial-gradient(center, ellipse cover, $startColor $startPos,$endColor $endPos)
-    background: -ms-radial-gradient(center, ellipse cover, $startColor $startPos,$endColor $endPos)
-    background: radial-gradient(ellipse at center, $startColor $startPos,$endColor $endPos)
-    filter:     progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$startColor}', endColorstr='#{$endColor}',GradientType=1 )
+  background: -moz-radial-gradient(center, ellipse cover, $startColor $startPos, $endColor $endPos)
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop($startPos,$startColor), color-stop($endPos,$endColor))
+  background: -webkit-radial-gradient(center, ellipse cover, $startColor $startPos,$endColor $endPos)
+  background: -o-radial-gradient(center, ellipse cover, $startColor $startPos,$endColor $endPos)
+  background: -ms-radial-gradient(center, ellipse cover, $startColor $startPos,$endColor $endPos)
+  background: radial-gradient(ellipse at center, $startColor $startPos,$endColor $endPos)
+  filter:     progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$startColor}', endColorstr='#{$endColor}',GradientType=1 )
 
 
 /* BACKGROUND SIZE */
