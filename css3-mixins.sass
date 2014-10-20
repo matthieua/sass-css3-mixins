@@ -70,6 +70,10 @@
   -webkit-background-size: $width $height
   background-size: $width $height
 
+/* BACKGROUND COLOR OPACITY */
+@mixin background-opacity($color, $opacity: 0.85)
+  background: $color
+  background: rgba($color, $opacity)
 
 /* BORDER RADIUS */
 @mixin border-radius($radius: 5px)
