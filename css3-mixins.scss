@@ -76,7 +76,7 @@
 
 /* BACKGROUND SIZE */
 @mixin background-size($width: 100%, $height: $width) {
-  @if type-of($width) == 'number' {
+  @if type-of($width) == 'number' and $height != null {
     @include prefix('background-size', $width $height);
   } @else {
     @include prefix('background-size', $width);
