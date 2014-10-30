@@ -74,8 +74,11 @@
 
 
 /* BACKGROUND SIZE */
-@mixin background-size($width: 100%, $height: 100%)
-  @include prefix('background-size', $width $height)
+@mixin background-size($width: 100%, $height: $width)
+  @if (type-of($width) == 'number')
+    @include prefix('background-size', $width $height)
+  @else
+    @include prefix('background-size', $width)
 
 /* BACKGROUND COLOR OPACITY */
 @mixin background-opacity($color, $opacity: 0.85)
