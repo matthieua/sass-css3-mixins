@@ -12,7 +12,7 @@ more info: http://www.findmebyip.com/litmus/#css3-properties
 
 ## Version
 
-v0.1 Beta
+v0.2
 
 ## Website URL
 
@@ -27,12 +27,24 @@ http://mynameismatthieu.com/sass-css3-mixins/
  </tr>
  
  <tr>
+   <td>css3-prefix</td>
+   <td>Will add browser specific prefixes to supplied property (and will set it to supplied value)</td>
+ </tr>
+ <tr>
    <td>background-gradient</td>
    <td>Start Color: #3C3C3C, End Color: #999999</td>
  </tr>
  <tr>
    <td>background-size</td>
    <td>Width: 100%, Height: 100%</td>
+ </tr>
+ <tr>
+   <td>background-radial</td>
+   <td>Start Color: #FFFFFF, Start position: 0%, End Color: #000000, End position: 100%</td>
+ </tr>
+ <tr>
+   <td>background-opacity</td>
+   <td>Color: #000, Opacity: .85</td>
  </tr>
  <tr>
    <td>border-radius</td>
@@ -83,7 +95,7 @@ http://mynameismatthieu.com/sass-css3-mixins/
    <td>Opacity: 0.5</td>
  </tr>
  <tr>
-   <td>outline radius</td>
+   <td>outline-radius</td>
    <td>Radius: 5px</td>
  </tr>
  <tr>
@@ -103,13 +115,25 @@ http://mynameismatthieu.com/sass-css3-mixins/
    <td>Parameters: null</td>
  </tr>
  <tr>
+   <td>transform-style</td>
+   <td>Style: preserve-3d</td>
+ </tr>
+ <tr>
    <td>transition</td>
    <td>What: all, Length: 1s, Easing: ease-in-out</td>
  </tr>
  <tr>
    <td>triple-borders</td>
    <td>Color One: #3C3C3C, Color Two: #999999, Color Three: #000000, Radius: 0</td>
- </tr>       
+ </tr>
+ <tr>
+   <td>keyframes</td>
+   <td>Animation name - pass animation css as body</td>
+ </tr>
+ <tr>
+   <td>animation</td>
+   <td>name duration timing-function delay iteration-count direction fill-mode play-state (http://www.w3schools.com/cssref/css3_pr_animation.asp)</td>
+ </tr>
 </table>
 
 ## Examples and Instructions
@@ -121,7 +145,7 @@ http://mynameismatthieu.com/sass-css3-mixins/
    // Call Mixins
    @include opacity();
    @include border-radius(3px); 
-   @include transition(color, .5s, ease-in); 
+   @include transition(color, .5s, ease-in);
 ```
 
 ## Changelog
