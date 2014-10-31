@@ -12,7 +12,7 @@ more info: http://www.findmebyip.com/litmus/#css3-properties
 
 ## Version
 
-v0.1 Beta
+v0.2
 
 ## Website URL
 
