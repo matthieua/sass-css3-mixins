@@ -34,6 +34,7 @@
     CSS Matrix Rotation Calculator http://www.boogdesign.com/examples/transforms/matrix-calculator.html
     -   text-shadow             - arguments: X: 2px, Y: 2px, Blur: 5px, Color: rgba(0,0,0,.4)
     -   transform               - arguments: Parameters: null
+    -   transform-style         - arguments: Style: preserve-3d
     -   transition              - arguments: What: all, Length: 1s, Easing: ease-in-out
     -   triple-borders          - arguments: Color One: #3C3C3C, Color Two: #999999, Color Three: #000000, Radius: 0
     -   keyframes               - arguments: Animation name
@@ -216,6 +217,11 @@
 /* TRANSFORM  */
 @mixin transform($params) {
   @include css3-prefix('transform', $params);
+}
+
+/* TRANSFORM STYLE */
+@mixin transform-style($style: preserve-3d) {
+  @include css3-prefix('transform-style', $style);
 }
 
 /* TRANSITION */

@@ -115,6 +115,10 @@ http://mynameismatthieu.com/sass-css3-mixins/
    <td>Parameters: null</td>
  </tr>
  <tr>
+   <td>transform-style</td>
+   <td>Style: preserve-3d</td>
+ </tr>
+ <tr>
    <td>transition</td>
    <td>What: all, Length: 1s, Easing: ease-in-out</td>
  </tr>
