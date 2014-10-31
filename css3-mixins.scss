@@ -11,9 +11,11 @@
   more info: http://www.findmebyip.com/litmus/#css3-properties
 
   Mixins available:
+    -   css3-prefix             - arguments: Property, Value
     -   background-gradient     - arguments: Start Color: #3C3C3C, End Color: #999999
     -   background-radial       - arguments: Start Color: #FFFFFF, Start position: 0%, End Color: #000000, End position: 100%
     -   background-size         - arguments: Width: 100%, Height: 100%
+    -   background-opacity      - arguments: Color: #000, Opacity: .85
     -   border-radius           - arguments: Radius: 5px
     -   border-radius-separate  - arguments: Top Left: 5px, Top Left: 5px, Bottom Left: 5px, Bottom Right: 5px
     -   box                     - arguments: Orientation: horizontal, Pack: center, Align: center
@@ -42,7 +44,7 @@
 ------------------------------------------------------------- */
 
 /* ADDS A BROWSER PREFIX TO THE PROPERTY */
-@mixin prefix($property, $value) {
+@mixin css3-prefix($property, $value) {
   -webkit-#{$property}: #{$value};
    -khtml-#{$property}: #{$value};
      -moz-#{$property}: #{$value};
@@ -77,21 +79,21 @@
 /* BACKGROUND SIZE */
 @mixin background-size($width: 100%, $height: $width) {
   @if type-of($width) == 'number' and $height != null {
-    @include prefix('background-size', $width $height);
+    @include css3-prefix('background-size', $width $height);
   } @else {
-    @include prefix('background-size', $width);
+    @include css3-prefix('background-size', $width);
   }
 }
 
 /* BACKGROUND COLOR OPACITY */
-@mixin background-opacity($color, $opacity: 0.85) {
+@mixin background-opacity($color: #000, $opacity: 0.85) {
   background: $color;
   background: rgba($color, $opacity);
 }
 
 /* BORDER RADIUS */
 @mixin border-radius($radius: 5px) {
-    @include prefix('border-radius', $radius);
+    @include css3-prefix('border-radius', $radius);
 }
 
 @mixin border-radius-separate($topLeftRadius: 5px, $topRightRadius: 5px, $bottomLeftRadius: 5px, $bottomRightRadius: 5px) {
@@ -117,9 +119,9 @@
   display: -moz-box;
   display: box;
 
-  @include prefix('box-orient', $orient);
-  @include prefix('box-pack', $pack);
-  @include prefix('box-align', $align);
+  @include css3-prefix('box-orient', $orient);
+  @include css3-prefix('box-pack', $pack);
+  @include css3-prefix('box-align', $align);
 }
 
 /* BOX RGBA */
@@ -134,40 +136,40 @@
 /* BOX SHADOW */
 @mixin box-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0,0,0,.4), $inset: "") {
   @if ($inset != "") {
-    @include prefix('box-shadow', $inset $x $y $blur $color);
+    @include css3-prefix('box-shadow', $inset $x $y $blur $color);
   } @else {
-    @include prefix('box-shadow', $x $y $blur $color);
+    @include css3-prefix('box-shadow', $x $y $blur $color);
   }
 }
 
 /* BOX SIZING */
 @mixin box-sizing($type: border-box) {
-  @include prefix('box-sizing', $type);
+  @include css3-prefix('box-sizing', $type);
 }
 
 /* COLUMNS */
 @mixin columns($count: 3, $gap: 10) {
-  @include prefix('column-count', $count);
-  @include prefix('column-gap', $gap);
+  @include css3-prefix('column-count', $count);
+  @include css3-prefix('column-gap', $gap);
 }
 
 /* DOUBLE BORDERS */
 @mixin double-borders($colorOne: #3C3C3C, $colorTwo: #999999, $radius: 0) {
   border: 1px solid $colorOne;
 
-  @include prefix('box-shadow', 0 0 0 1px $colorTwo);
+  @include css3-prefix('box-shadow', 0 0 0 1px $colorTwo);
 
   @include border-radius( $radius );
 }
 
 /* FLEX */
 @mixin flex($value: 1) {
-  @include prefix('box-flex', $value);
+  @include css3-prefix('box-flex', $value);
 }
 
 /* FLIP */
 @mixin flip($scaleX: -1) {
-  @include prefix('transform', scaleX($scaleX));
+  @include css3-prefix('transform', scaleX($scaleX));
   filter:            FlipH;
   -ms-filter:        "FlipH";
 }
@@ -184,23 +186,23 @@
 @mixin opacity($opacity: 0.5) {
     filter:         alpha(opacity=($opacity * 100));
     -ms-filter:     "progid:DXImageTransform.Microsoft.Alpha(Opacity=" + ($opacity * 100) + ")";
-    @include prefix('opacity', $opacity);
+    @include css3-prefix('opacity', $opacity);
 }
 
 
 /* OUTLINE RADIUS */
 @mixin outline-radius($radius: 5px) {
-  @include prefix('outline-radius', $radius);
+  @include css3-prefix('outline-radius', $radius);
 }
 
 /* RESIZE */
 @mixin resize($direction: both) {
-  @include prefix('resize', $direction);
+  @include css3-prefix('resize', $direction);
 }
 
 /* ROTATE*/
 @mixin rotate($deg: 0, $m11: 0, $m12: 0, $m21: 0, $m22: 0) {
-  @include prefix('transform', rotate($deg + deg));
+  @include css3-prefix('transform', rotate($deg + deg));
   filter: progid:DXImageTransform.Microsoft.Matrix(
        M11=#{$m11}, M12=#{$m12}, M21=#{$m21}, M22=#{$m22}, sizingMethod='auto expand');
     zoom: 1;
@@ -213,12 +215,12 @@
 
 /* TRANSFORM  */
 @mixin transform($params) {
-  @include prefix('transform', $params);
+  @include css3-prefix('transform', $params);
 }
 
 /* TRANSITION */
 @mixin transition($what: all, $length: 1s, $easing: ease-in-out) {
-  @include prefix('transition', $what $length $easing);
+  @include css3-prefix('transition', $what $length $easing);
 }
 
 /* TRIPLE BORDERS */
@@ -227,7 +229,7 @@
 
     @include border-radius($radius);
 
-    @include prefix('box-shadow', 0 0 0 1px $colorTwo, 0 0 0 2px $colorThree);
+    @include css3-prefix('box-shadow', 0 0 0 1px $colorTwo, 0 0 0 2px $colorThree);
 }
 
 /* KEYFRAMES */
@@ -251,5 +253,5 @@
 
 /* ANIMATION */
 @mixin animation($str) {
-  @include prefix('animation', $str);
+  @include css3-prefix('animation', $str);
 }
