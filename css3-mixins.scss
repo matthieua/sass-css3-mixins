@@ -185,8 +185,10 @@
 
 /* OPACITY */
 @mixin opacity($opacity: 0.5) {
-    filter:         alpha(opacity=($opacity * 100));
-    -ms-filter:     "progid:DXImageTransform.Microsoft.Alpha(Opacity=" + ($opacity * 100) + ")";
+    $opacityMultiplied: ($opacity * 100);
+    
+    filter:         alpha(opacity=$opacityMultiplied);
+    -ms-filter:     "progid:DXImageTransform.Microsoft.Alpha(Opacity=" + $opacityMultiplied + ")";
     @include css3-prefix('opacity', $opacity);
 }
 
