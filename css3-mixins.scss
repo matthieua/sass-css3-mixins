@@ -236,7 +236,7 @@
   }
 
   @else {
-    @include css3-prefix($what: all, $length: 1s, $easing: ease-in-out);
+    @include css3-prefix('transition', $what: all, $length: 1s, $easing: ease-in-out);
   }
 }
 
