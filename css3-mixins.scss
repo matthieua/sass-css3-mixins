@@ -35,7 +35,9 @@
     -   text-shadow             - arguments: X: 2px, Y: 2px, Blur: 5px, Color: rgba(0,0,0,.4)
     -   transform               - arguments: Parameters: null
     -   transform-style         - arguments: Style: preserve-3d
-    -   transition              - arguments: What: all, Length: 1s, Easing: ease-in-out
+    -   transition              - Default arguments: What: all, Length: 1s, Easing: ease-in-out
+    -                            - Examples: @include transition (all 2s ease-in-out);
+    -                                        @include transition (opacity 1s ease-in 2s, width 2s ease-out);
     -   triple-borders          - arguments: Color One: #3C3C3C, Color Two: #999999, Color Three: #000000, Radius: 0
     -   keyframes               - arguments: Animation name
                                 - content:   Animation css
@@ -227,8 +229,15 @@
 }
 
 /* TRANSITION */
-@mixin transition($what: all, $length: 1s, $easing: ease-in-out) {
-  @include css3-prefix('transition', $what $length $easing);
+@mixin transition($properties...) {
+  
+  @if length($properties) >= 1 {
+    @include css3-prefix('transition', $properties);
+  }
+
+  @else {
+    @include css3-prefix($what: all, $length: 1s, $easing: ease-in-out);
+  }
 }
 
 /* TRIPLE BORDERS */
