@@ -35,12 +35,16 @@ http://mynameismatthieu.com/sass-css3-mixins/
    <td>Start Color: #3C3C3C, End Color: #999999</td>
  </tr>
  <tr>
-   <td>background-size</td>
-   <td>Width: 100%, Height: 100%</td>
+   <td>background-horizontal</td>
+   <td>Start Color: #3C3C3C, End Color: #999999</td>
  </tr>
  <tr>
    <td>background-radial</td>
    <td>Start Color: #FFFFFF, Start position: 0%, End Color: #000000, End position: 100%</td>
+ </tr>
+  <tr>
+   <td>background-size</td>
+   <td>Width: 100%, Height: 100%</td>
  </tr>
  <tr>
    <td>background-opacity</td>
@@ -52,7 +56,7 @@ http://mynameismatthieu.com/sass-css3-mixins/
  </tr>
  <tr>
    <td>border-radius-separate</td>
-   <td>Top Left: 5px, Top Left: 5px, Bottom Left: 5px, Bottom Right: 5px</td>
+   <td>Top Left: 5px, Top Right: 5px, Bottom Left: 5px, Bottom Right: 5px</td>
  </tr>
  <tr>
    <td>box</td>
