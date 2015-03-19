@@ -173,9 +173,9 @@
   -ms-filter:        "FlipH"
 
 /* FONT FACE */
-@mixin font-face($fontFamily: myFont, $eotFileSrc: 'myFont.eot', $woffFileSrc: 'myFont.woff', $ttfFileSrc: 'myFont.ttf')
+@mixin font-face($fontFamily: myFont, $eotFileSrc: 'myFont.eot', $woffFileSrc: 'myFont.woff', $ttfFileSrc: 'myFont.ttf', $svgFileSrc: 'myFont.svg', $svgFontID: '#myFont')
   font-family: $fontFamily
-  src: url($eotFileSrc)  format('eot'), url($woffFileSrc) format('woff'), url($ttfFileSrc)  format('truetype')
+  src: url($eotFileSrc)  format('eot'), url($woffFileSrc) format('woff'), url($ttfFileSrc)  format('truetype'), url($svgFileSrc + $svgFontID) format('svg')
 
 /* OPACITY */
 @mixin opacity($opacity: 0.5)
