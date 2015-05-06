@@ -44,7 +44,7 @@
  *                                - content:   Animation css
  *    -   animation               - arguments: name duration timing-function delay iteration-count direction fill-mode play-state
                                              (http://www.w3schools.com/cssref/css3_pr_animation.asp)
- 
+
  *-------------------------------------------------------------*/
 
  /* ADDS A BROWSER PREFIX TO THE PROPERTY */
@@ -79,7 +79,7 @@
     filter:            progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$startColor}', endColorStr='#{$endColor}', gradientType='1')
 
 /* BACKGROUND RADIAL */
-@mixin background-radial($startColor: #FFFFFF, $startPos: 0%, $endColor: #000000, $endPos:100%) 
+@mixin background-radial($startColor: #FFFFFF, $startPos: 0%, $endColor: #000000, $endPos:100%)
   background: -moz-radial-gradient(center, ellipse cover, $startColor $startPos, $endColor $endPos)
   background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop($startPos,$startColor), color-stop($endPos,$endColor))
   background: -webkit-radial-gradient(center, ellipse cover, $startColor $startPos,$endColor $endPos)
@@ -216,7 +216,7 @@
   @if length($properties) >= 1
     @include css3-prefix('transition', $properties)
   @else
-    @include css3-prefix('transition', $what: all, $length: 1s, $easing: ease-in-out)
+    @include css3-prefix('transition',  "all 0.2s ease-in-out 0s")
 
 
 /* TRIPLE BORDERS */
@@ -225,11 +225,11 @@
 
   @include border-radius($radius)
 
-  @include css3-prefix('box-shadow', 0 0 0 1px $colorTwo, 0 0 0 2px $colorThree)
+  @include css3-prefix('box-shadow', "0 0 0 1px #{$colorTwo}, 0 0 0 2px #{$colorThree}")
 
 
 /* KEYFRAMES */
-@mixin keyframes($animation-name) 
+@mixin keyframes($animation-name)
   @-webkit-keyframes $animation-name
     @content
   @-moz-keyframes $animation-name
