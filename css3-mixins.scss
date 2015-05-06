@@ -201,7 +201,7 @@
 /* OPACITY */
 @mixin opacity($opacity: 0.5) {
     $opacityMultiplied: ($opacity * 100);
-    
+
     filter:         alpha(opacity=$opacityMultiplied);
     -ms-filter:     "progid:DXImageTransform.Microsoft.Alpha(Opacity=" + $opacityMultiplied + ")";
     @include css3-prefix('opacity', $opacity);
@@ -243,13 +243,13 @@
 
 /* TRANSITION */
 @mixin transition($properties...) {
-  
+
   @if length($properties) >= 1 {
     @include css3-prefix('transition', $properties);
   }
 
   @else {
-    @include css3-prefix('transition', $what: all, $length: 1s, $easing: ease-in-out);
+    @include css3-prefix('transition',  "all 0.2s ease-in-out 0s");
   }
 }
 
@@ -259,7 +259,7 @@
 
     @include border-radius($radius);
 
-    @include css3-prefix('box-shadow', 0 0 0 1px $colorTwo, 0 0 0 2px $colorThree);
+    @include css3-prefix('box-shadow', "0 0 0 1px #{$colorTwo}, 0 0 0 2px #{$colorThree}");
 }
 
 /* KEYFRAMES */
@@ -269,13 +269,13 @@
   }
   @-moz-keyframes #{$animation-name} {
     @content;
-  }  
+  }
   @-ms-keyframes #{$animation-name} {
     @content;
   }
   @-o-keyframes #{$animation-name} {
     @content;
-  }  
+  }
   @keyframes #{$animation-name} {
     @content;
   }
