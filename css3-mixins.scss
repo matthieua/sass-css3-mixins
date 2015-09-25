@@ -10,44 +10,19 @@
   note: All CSS3 Properties are being supported by Safari 5
   more info: http://www.findmebyip.com/litmus/#css3-properties
 
-  Mixins available:
-    -   css3-prefix             - arguments: Property, Value
-    -   background-gradient     - arguments: Start Color: #3C3C3C, End Color: #999999
-    -   background-horizontal   - arguments: Start Color: #3C3C3C, End Color: #999999
-    -   background-radial       - arguments: Start Color: #FFFFFF, Start position: 0%, End Color: #000000, End position: 100%
-    -   background-size         - arguments: Width: 100%, Height: 100%
-    -   background-opacity      - arguments: Color: #000, Opacity: .85
-    -   border-radius           - arguments: Radius: 5px
-    -   border-radius-separate  - arguments: Top Left: 5px, Top Right: 5px, Bottom Left: 5px, Bottom Right: 5px
-    -   box                     - arguments: Orientation: horizontal, Pack: center, Align: center
-    -   box-rgba                - arguments: R: 60, G: 3, B: 12, Opacity: 0.23, Color: #3C3C3C
-    -   box-shadow              - arguments: X: 2px, Y: 2px, Blur: 5px, Color: rgba(0,0,0,.4)
-    -   box-sizing              - arguments: Type: border-box
-    -   columns                 - arguments: Count: 3, Gap: 10
-    -   double-borders          - arguments: Color One: #3C3C3C, Color Two: #999999, Radius: 0
-    -   flex                    - arguments: Value: 1
-    -   flip                    - arguments: ScaleX: -1
-    -   font-face               - arguments: Font Family: myFont, Eot File Src: myFont.eot, Woff File Src: myFont.woff, Ttf File Src: myFont.ttf
-    -   opacity                 - arguments: Opacity: 0.5
-    -   outline radius          - arguments: Radius: 5px
-    -   resize                  - arguments: Direction: both
-    -   rotate                  - arguments: Degree: 0, M11: 0, M12: 0, M21: 0, M22: 0
-    CSS Matrix Rotation Calculator http://www.boogdesign.com/examples/transforms/matrix-calculator.html
-    -   text-shadow             - arguments: X: 2px, Y: 2px, Blur: 5px, Color: rgba(0,0,0,.4)
-    -   transform               - arguments: Parameters: null
-    -   transform-style         - arguments: Style: preserve-3d
-    -   transition              - Default arguments: What: all, Length: 1s, Easing: ease-in-out
-    -                            - Examples: @include transition (all 2s ease-in-out);
-    -                                        @include transition (opacity 1s ease-in 2s, width 2s ease-out);
-    -   triple-borders          - arguments: Color One: #3C3C3C, Color Two: #999999, Color Three: #000000, Radius: 0
-    -   keyframes               - arguments: Animation name
-                                - content:   Animation css
-    -   animation               - arguments: name duration timing-function delay iteration-count direction fill-mode play-state
-                                             (http://www.w3schools.com/cssref/css3_pr_animation.asp)
-
 ------------------------------------------------------------- */
 
-// ADDS A BROWSER PREFIX TO THE PROPERTY
+
+////
+/// @author Matthieu Aussaguel
+/// @group sass-css3-mixins
+////
+
+
+/// Adds a browser prefix to the property
+/// @param {*} $property Property
+/// @param {*} $value Value
+
 @mixin css3-prefix($property, $value) {
   -webkit-#{$property}: #{$value};
    -khtml-#{$property}: #{$value};
@@ -57,7 +32,11 @@
           #{$property}: #{$value};
 }
 
-// BACKGROUND GRADIENT
+
+/// Background Gradient
+/// @param {Color} $startColor [#3C3C3C] - Start Color
+/// @param {Color} $endColor [#999999] - End Color
+
 @mixin background-gradient($startColor: #3C3C3C, $endColor: #999999) {
     background-color: $startColor;
     background-image: -webkit-gradient(linear, left top, left bottom, from($startColor), to($endColor));
@@ -69,7 +48,11 @@
     filter:            progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$startColor}', endColorStr='#{$endColor}');
 }
 
-// BACKGROUND HORIZONTAL
+
+/// Background Horizontal
+/// @param {Color} $startColor [#3C3C3C] - Start Color
+/// @param {Color} $endColor [#999999] - End Color
+
 @mixin background-horizontal($startColor: #3C3C3C, $endColor: #999999) {
     background-color: $startColor;
     background-image: -webkit-gradient(linear, left top, right top, from($startColor), to($endColor));
@@ -81,7 +64,13 @@
     filter:            progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$startColor}', endColorStr='#{$endColor}', gradientType='1');
 }
 
-// BACKGROUND RADIAL
+
+/// Background Radial
+/// @param {Color} $startColor [#3C3C3C] - Start Color
+/// @param {Percentage} $startPos [0%] - Start position
+/// @param {Color} $endColor [#999999] - End Color
+/// @param {Percentage} $endPos [100%] - End position
+
 @mixin background-radial($startColor: #FFFFFF, $startPos: 0%, $endColor: #000000, $endPos:100%) {
     background: -moz-radial-gradient(center, ellipse cover, $startColor $startPos, $endColor $endPos);
     background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop($startPos,$startColor), color-stop($endPos,$endColor));
@@ -91,7 +80,12 @@
     background: radial-gradient(ellipse at center, $startColor $startPos,$endColor $endPos);
 }
 
-// BACKGROUND SIZE
+
+/// Background Size
+/// @param {Size} $width [100%] - Width
+/// @param {Size} $width [$width] - Height
+/// @require {mixin} css3-prefix
+
 @mixin background-size($width: 100%, $height: $width) {
   @if type-of($width) == 'number' and $height != null {
     @include css3-prefix('background-size', $width $height);
@@ -100,16 +94,31 @@
   }
 }
 
-// BACKGROUND COLOR OPACITY
+
+/// Background Color Opacity
+/// @param {Color} $color [100%] - Color
+/// @param {Double} $opacity [0.85] - Opacity
+
 @mixin background-opacity($color: #000, $opacity: 0.85) {
   background: $color;
   background: rgba($color, $opacity);
 }
 
-// BORDER RADIUS
+
+/// Border Radius
+/// @param {Size} $radius [5px] - Radius
+/// @require {mixin} css3-prefix
+
 @mixin border-radius($radius: 5px) {
     @include css3-prefix('border-radius', $radius);
 }
+
+
+/// Border Radius Separate
+/// @param {Size} $topLeftRadius [5px] - Top Left
+/// @param {Size} $topRightRadius [5px] - Top Right
+/// @param {Size} $bottomLeftRadius [5px] - Bottom Left
+/// @param {Size} $bottomRightRadius [5px] - Bottom Right
 
 @mixin border-radius-separate($topLeftRadius: 5px, $topRightRadius: 5px, $bottomLeftRadius: 5px, $bottomRightRadius: 5px) {
   -webkit-border-top-left-radius:     $topLeftRadius;
@@ -128,7 +137,13 @@
   border-bottom-left-radius:  $bottomLeftRadius;
 }
 
-// BOX
+
+/// Box
+/// @param {*} $orient [horizontal] - Orientation
+/// @param {*} $pack [center] - Pack
+/// @param {*} $align [center] - Align
+/// @require {mixin} css3-prefix
+
 @mixin box($orient: horizontal, $pack: center, $align: center) {
   display: -webkit-box;
   display: -moz-box;
@@ -139,7 +154,14 @@
   @include css3-prefix('box-align', $align);
 }
 
-// BOX RGBA
+
+/// Box RGBA
+/// @param {Integer} $r [60] - Red
+/// @param {Integer} $g [3] - Green
+/// @param {Integer} $b [12] - Blue
+/// @param {Double} $opacity [0.23] - Opacity
+/// @param {Color} $color [#3C3C3C] - Color
+
 @mixin box-rgba($r: 60, $g: 3, $b: 12, $opacity: 0.23, $color: #3C3C3C) {
   background-color: transparent;
   background-color: rgba($r, $g, $b, $opacity);
@@ -148,7 +170,13 @@
 }
 
 
-// BOX SHADOW
+/// Box Shadow
+/// @param {Size} $x [2px] - X
+/// @param {Size} $y [2px] - Y
+/// @param {Size} $blur [5px] - Blur
+/// @param {Color} $color [rgba(0,0,0,.4)] - Color
+/// @param {Boolean} $inset - Inset
+
 @mixin box-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0,0,0,.4), $inset: "") {
   @if ($inset != "") {
     @include css3-prefix('box-shadow', $inset $x $y $blur $color);
@@ -157,18 +185,34 @@
   }
 }
 
-// BOX SIZING
+
+/// Box Sizing
+/// @param {*} $type [border-box] - Type
+/// @require {mixin} css3-prefix
+
 @mixin box-sizing($type: border-box) {
   @include css3-prefix('box-sizing', $type);
 }
 
-// COLUMNS
+
+/// Columns
+/// @param {Integer} $count [3] - Count
+/// @param {Integer} $gap [10] - Gap
+/// @require {mixin} css3-prefix
+
 @mixin columns($count: 3, $gap: 10) {
   @include css3-prefix('column-count', $count);
   @include css3-prefix('column-gap', $gap);
 }
 
-// DOUBLE BORDERS
+
+/// Double Borders
+/// @param {Color} $colorOne [#3C3C3C] - Color One
+/// @param {Color} $colorTwo [#999999] - Color Two
+/// @param {Size} $radius [0] - Radius
+/// @require {mixin} css3-prefix
+/// @require {mixin} border-radius
+
 @mixin double-borders($colorOne: #3C3C3C, $colorTwo: #999999, $radius: 0) {
   border: 1px solid $colorOne;
 
@@ -177,19 +221,34 @@
   @include border-radius( $radius );
 }
 
-// FLEX
+
+/// Flex
+/// @param {Integer} $value [1] - Value
+/// @require {mixin} css3-prefix
+
 @mixin flex($value: 1) {
   @include css3-prefix('box-flex', $value);
 }
 
-// FLIP
+
+/// Flip
+/// @param {Double} $scaleX [-1] - ScaleX
+/// @require {mixin} css3-prefix
+
 @mixin flip($scaleX: -1) {
   @include css3-prefix('transform', scaleX($scaleX));
   filter:            FlipH;
   -ms-filter:        "FlipH";
 }
 
-// FONT FACE
+
+/// Font Face
+/// @param {Font} $fontFamily [myFont] - Font Family
+/// @param {String} $eotFileSrc ['myFont.eot'] - Eot File Source
+/// @param {String} $woffFileSrc ['myFont.woff'] - Woff File Source
+/// @param {String} $ttfFileSrc ['myFont.ttf'] - Ttf File Source
+/// @param {String} $svgFileSrc ['myFont.svg'] - Svg File Source
+
 @mixin font-face($fontFamily: myFont, $eotFileSrc: 'myFont.eot', $woffFileSrc: 'myFont.woff', $ttfFileSrc: 'myFont.ttf', $svgFileSrc: 'myFont.svg', $svgFontID: '#myFont') {
   font-family: $fontFamily;
   src: url($eotFileSrc)  format('eot'),
@@ -198,7 +257,11 @@
        url($svgFileSrc + $svgFontID) format('svg');
 }
 
-// OPACITY
+
+/// Opacity
+/// @param {Double} $opacity [0.5] - Opacity
+/// @require {mixin} css3-prefix
+
 @mixin opacity($opacity: 0.5) {
     $opacityMultiplied: ($opacity * 100);
 
@@ -208,17 +271,34 @@
 }
 
 
-// OUTLINE RADIUS
+/// Outline Radius
+/// @param {Size} $radius [5px] - Radius
+/// @require {mixin} css3-prefix
+
 @mixin outline-radius($radius: 5px) {
   @include css3-prefix('outline-radius', $radius);
 }
 
-// RESIZE
+
+/// Resize
+/// @param {*} $directoin [both] - Direction
+/// @require {mixin} css3-prefix
+
 @mixin resize($direction: both) {
   @include css3-prefix('resize', $direction);
 }
 
-// ROTATE
+
+/// Rotate
+///
+/// CSS Matrix Rotation Calculator http://www.boogdesign.com/examples/transforms/matrix-calculator.html
+/// @param {Double} $deg [0] - Degree
+/// @param {Double} $m11 [0] - M11
+/// @param {Double} $m12 [0] - M12
+/// @param {Double} $m21 [0] - M21
+/// @param {Double} $m22 [0] - M22
+/// @require {mixin} css3-prefix
+
 @mixin rotate($deg: 0, $m11: 0, $m12: 0, $m21: 0, $m22: 0) {
   @include css3-prefix('transform', rotate($deg + deg));
   filter: progid:DXImageTransform.Microsoft.Matrix(
@@ -226,27 +306,48 @@
     zoom: 1;
 }
 
-// TEXT SHADOW
+
+/// Text Shadow
+/// @param {Size} $x [2px] - X
+/// @param {Size} $y [2px] - Y
+/// @param {Size} $blur [2px] - Blur
+/// @param {Color} $color [rgba(0,0,0,.4)] - Color
+
 @mixin text-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0,0,0,.4)) {
     text-shadow: $x $y $blur $color;
 }
 
-// TRANSFORM
+
+/// Transform
+/// @param {List} $params - Params
+/// @require {mixin} css3-prefix
+
 @mixin transform($params) {
   @include css3-prefix('transform', $params);
 }
 
-// TRANSFORM-ORIGIN
+
+/// Transform-Origin
+/// @param {List} $params - Params
+/// @require {mixin} css3-prefix
+
 @mixin transform-origin($params) {
   @include css3-prefix('transform-origin', $params);
 }
 
-// TRANSFORM STYLE
+
+// Transform-Style
+/// @param {List} $params - Params
+/// @require {mixin} css3-prefix
+
 @mixin transform-style($style: preserve-3d) {
   @include css3-prefix('transform-style', $style);
 }
 
-// TRANSITION
+/// Transition
+/// @param {List} $properties - Properties
+/// @require {mixin} css3-prefix
+
 @mixin transition($properties...) {
 
   @if length($properties) >= 1 {
@@ -258,7 +359,15 @@
   }
 }
 
-// TRIPLE BORDERS
+
+/// Triple Borders
+/// @param {Color} $colorOne [#3C3C3C] - Color One
+/// @param {Color} $colorTwo [#999999] - Color Two
+/// @param {Color} $colorThree [#000000] - Color Three
+/// @param {Size} $radius [0] - Radius
+/// @require {mixin} border-radius
+/// @require {mixin} css3-prefix
+
 @mixin triple-borders($colorOne: #3C3C3C, $colorTwo: #999999, $colorThree: #000000, $radius: 0) {
     border: 1px solid $colorOne;
 
@@ -267,7 +376,11 @@
     @include css3-prefix('box-shadow', "0 0 0 1px #{$colorTwo}, 0 0 0 2px #{$colorThree}");
 }
 
-// KEYFRAMES
+
+/// Keyframes
+/// @param {*} $animation-name - Animation name
+/// @content [Animation css]
+
 @mixin keyframes($animation-name) {
   @-webkit-keyframes #{$animation-name} {
     @content;
@@ -286,7 +399,11 @@
   }
 }
 
-// ANIMATION
+
+/// Animation
+/// @param {*} $str - name duration timing-function delay iteration-count direction fill-mode play-state ([http://www.w3schools.com/cssref/css3_pr_animation.asp](http://www.w3schools.com/cssref/css3_pr_animation.asp))
+/// @require {mixin} css3-prefix
+
 @mixin animation($str) {
   @include css3-prefix('animation', $str);
 }
