@@ -145,17 +145,18 @@
   zoom: 1
 
 /// Box Shadow
-/// @param {Size} $x [2px] - X
-/// @param {Size} $y [2px] - Y
-/// @param {Size} $blur [5px] - Blur
-/// @param {Color} $color [rgba(0,0,0,.4)] - Color
-/// @param {Boolean} $inset - Inset
-
-=box-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0, 0, 0, 0.4), $inset: "")
-  @if $inset != ""
-    +css3-prefix("box-shadow", $inset $x $y $blur $color)
-  @else
-    +css3-prefix("box-shadow", $x $y $blur $color)
+/// mixin solve for multiple box-shadows from http://stackoverflow.com/questions/5407386/multiple-box-shadow-declarations-in-sass
+=box-shadow($shadow1, $shadow2: false, $shadow3: false, $shadow4: false, $shadow5: false)
+  $params: $shadow1;
+  @if $shadow2
+    $params: $shadow1, $shadow2;
+    @if $shadow3
+      $params: $shadow1, $shadow2, $shadow3;
+      @if $shadow4
+        $params: $shadow1, $shadow2, $shadow3, $shadow4;
+        @if $shadow5
+          $params: $shadow1, $shadow2, $shadow3, $shadow4, $shadow5;
+  +css3-prefix("box-shadow", $params)
 
 /// Box Sizing
 /// @param {*} $type [border-box] - Type
