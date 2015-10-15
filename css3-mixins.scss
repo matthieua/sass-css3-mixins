@@ -176,11 +176,11 @@
  $params: $shadow1;
   @if $shadow2 
     { $params: $shadow1, $shadow2; }
-    @if $shadow3 != false
+    @if $shadow3
       { $params: $shadow1, $shadow2, $shadow3; }
-      @if $shadow4 != false
+      @if $shadow4
         { $params: $shadow1, $shadow2, $shadow3, $shadow4; }
-        @if $shadow5 != false
+        @if $shadow5
           { $params: $shadow1, $shadow2, $shadow3, $shadow4, $shadow5; }
 
 	@include css3-prefix('box-shadow', $params)
