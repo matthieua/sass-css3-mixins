@@ -65,6 +65,22 @@
 }
 
 
+/// Background Horizontal - inverse direction
+/// @param {Color} $startColor [#999999] - Start Color
+/// @param {Color} $endColor [#3C3C3C] - End Color
+
+@mixin background-horizontal-inverse($startColor: #999999, $endColor: #3C3C3C) {
+    background-color: $startColor;
+    background-image: -webkit-gradient(linear, right top, left top, from($startColor), to($endColor));
+    background-image: -webkit-linear-gradient(rigth, $startColor, $endColor);
+    background-image:    -moz-linear-gradient(rigth, $startColor, $endColor);
+    background-image:     -ms-linear-gradient(rigth, $startColor, $endColor);
+    background-image:      -o-linear-gradient(rigth, $startColor, $endColor);
+    background-image:         linear-gradient(rigth, $startColor, $endColor);
+    filter:            progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$endColor}', endColorStr='#{$startColor}', gradientType='1');
+}
+
+
 /// Background Radial
 /// @param {Color} $startColor [#3C3C3C] - Start Color
 /// @param {Percentage} $startPos [0%] - Start position
