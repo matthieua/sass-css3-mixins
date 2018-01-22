@@ -39,6 +39,10 @@ http://mynameismatthieu.com/sass-css3-mixins/
    <td>Start Color: #3C3C3C, End Color: #999999</td>
  </tr>
  <tr>
+   <td>background-horizontal-inverse</td>
+   <td>Start Color: #999999, End Color: #3C3C3C</td>
+ </tr>
+ <tr>
    <td>background-radial</td>
    <td>Start Color: #FFFFFF, Start position: 0%, End Color: #000000, End position: 100%</td>
  </tr>
