@@ -136,7 +136,7 @@ http://mynameismatthieu.com/sass-css3-mixins/
  </tr>
  <tr>
    <td>keyframes</td>
-   <td>Animation name - pass animation css as body</td>
+   <td>Animation name - pass animation css as body (https://www.scaler.com/topics/css/animation-css/)</td> 
  </tr>
  <tr>
    <td>animation</td>
